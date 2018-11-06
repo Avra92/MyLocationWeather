@@ -18,9 +18,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
+
 
 import java.util.ArrayList;
 
@@ -260,6 +258,7 @@ public class InitialActivity extends AppCompatActivity implements LocationListen
         }
     }
 
+    //Setting the Recycler view with the list of options available
     private void initOption() {
         mOptionUrls.add("https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX26390506.jpg");
         mOption.add("Weather");

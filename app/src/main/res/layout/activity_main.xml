@@ -3,18 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@drawable/weather"
+    android:background="@drawable/background"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/temp"
         android:layout_width="wrap_content"
-        android:layout_height="110dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="216dp"
-        android:text="@string/temperature"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="360dp"
+        android:layout_marginLeft="250dp"
+        android:text="17"
         android:textAlignment="center"
         android:textAppearance="@android:style/TextAppearance.Large"
         android:textColor="#ffffff"
@@ -24,40 +23,35 @@
         android:id="@+id/date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="210dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="435dp"
         android:text="@string/date"
-        android:textAlignment="center"
-        android:textAppearance="@android:style/TextAppearance.Large"
         android:textColor="#ffffff"
-        android:layout_marginLeft="200dp" />
+        android:textAlignment="center"
+        android:textAppearance="@android:style/TextAppearance.Small" />
 
     <TextView
         android:id="@+id/city"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="230dp"
-        android:layout_marginRight="28dp"
-        android:layout_marginTop="210dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="380dp"
         android:text="@string/city"
-        android:textAlignment="center"
-        android:textAppearance="@android:style/TextAppearance.Large"
         android:textColor="#ffffff"
-        android:layout_marginLeft="230dp" />
+        android:textSize="30dp"
+        android:textAlignment="center"
+        android:textAppearance="@android:style/TextAppearance.Large" />
 
     <TextView
         android:id="@+id/desc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="28dp"
+        android:layout_marginLeft="260dp"
+        android:layout_marginTop="460dp"
         android:text="@string/description"
+        android:textColor="#ffffff"
         android:textAlignment="center"
-        android:textAppearance="@android:style/TextAppearance.Large"
-        android:textSize="30dp"
-        android:textColor="#ffffff" />
+        android:textAppearance="@android:style/TextAppearance.Small" />
 
     <TextView
         android:id="@+id/textView5"
@@ -68,4 +62,13 @@
         android:textColor="#ffffff"
         android:layout_toRightOf="@+id/temp"
         android:text="@string/c" />
+
+    <ImageView
+        android:id="@+id/img_weather"
+        android:layout_width="wrap_content"
+        android:layout_height="340dp"
+        android:layout_marginTop="0dp"
+        android:layout_alignParentTop="true"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/weather" />
 </RelativeLayout>

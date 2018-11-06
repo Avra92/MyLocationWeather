@@ -39,10 +39,12 @@ public class LocationActivity extends AppCompatActivity  {
         tvDisplay = (TextView) findViewById(R.id.display);
         tvComma = (TextView) findViewById(R.id.textView4);
 
+        //Getting the latitude and longitude from the Initial Activity
         Bundle extras = getIntent().getExtras();
         double latitude = extras.getDouble("Latitude");
         double longitude = extras.getDouble("Longitude");
 
+        //Setting the Textviews with the latitude and longitude received
         tvLatitude.setText(String.valueOf(latitude));
         tvLongitude.setText(String.valueOf(longitude));
 

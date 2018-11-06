@@ -35,6 +35,7 @@ public class MapsActivity2 extends FragmentActivity implements OnMapReadyCallbac
     private GoogleMap mMap;
     LocationManager locationManager;
     SupportMapFragment mapFragment;
+    String str;
 
 
     @Override
@@ -67,8 +68,8 @@ public class MapsActivity2 extends FragmentActivity implements OnMapReadyCallbac
                     double latitude = location.getLatitude();
                     //Get Longitutde
                     double longitude = location.getLongitude();
-                    //Instantiating class LatLng
 
+                    //Calling function to get the weather details
                     check_weather(latitude,longitude);
 
                 }
@@ -120,8 +121,7 @@ public class MapsActivity2 extends FragmentActivity implements OnMapReadyCallbac
     }
 
     public void check_weather(final double a, final double b){
-        Log.d("MAP2","Latitude in MAP2"+a);
-        Log.d("MAP2","Longitude in MAP2"+b);
+        //Calling openweathermap API with the latitude and longitude
         String url = "http://api.openweathermap.org/data/2.5/find?lat="+a+"&lon="+b+"&cnt=1&appid=66a289b4109a07f6fcdf2992879e35ea&units=metric";
         JsonObjectRequest jor = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
@@ -135,24 +135,20 @@ public class MapsActivity2 extends FragmentActivity implements OnMapReadyCallbac
                     String temp = String.valueOf(main_object.getDouble("temp"));
                     String description = object.getString("description");
                     LatLng latLng = new LatLng(a,b);
-                    Log.d("Desc","Description"+description);
                     //Instanting class Geocoder
                     Geocoder geocoder = new Geocoder(MapsActivity2.this);
                     try {
-                        List<Address> addressList = geocoder.getFromLocation(a,b,1);
-                        String str = addressList.get(0).getSubLocality()+",";
-                        str += addressList.get(0).getLocality()+",";
+                        List<Address> addressList = geocoder.getFromLocation(a, b, 1);
+                        str = addressList.get(0).getSubLocality() + ",";
+                        str += addressList.get(0).getLocality() + ",";
                         str += addressList.get(0).getCountryName();
-                        String str1 = "Temperature:" + temp + "," + description;
-                        Log.d("Marker Tag","Marker Tag"+str);
-
-                        mMap.addMarker(new MarkerOptions().position(latLng).title(str).snippet(str1));
-                        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng,12));
-                        Log.d("Temperature", "Temperature: " + temp);
-                    } catch (Exception e) {
-                        Log.d("Geo","I'm here");
+                    }
+                    catch (Exception e) {
                         e.printStackTrace();
                     }
+                    String title_str = "Temperature:" + temp + "," + description;
+                    mMap.addMarker(new MarkerOptions().position(latLng).title(title_str).snippet(str));
+                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng,12));
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

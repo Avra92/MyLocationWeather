@@ -1,20 +1,14 @@
 package com.avraghosh.mylocationweather;
 
 import android.Manifest;
-import android.content.Context;
 import android.content.pm.PackageManager;
-import android.location.Address;
-import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
-import android.util.Log;
-
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
@@ -59,8 +53,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     latitude = location.getLatitude();
                     //Get Longitutde
                     longitude = location.getLongitude();
-                    Log.d("Latitude Network","Latitude Maps"+latitude);
-                    Log.d("Longitude Network","Longitude Maps"+longitude);
                     // Add a marker in current location and move the camera
                     LatLng latLng = new LatLng(latitude,longitude);
                     mMap.addMarker(new MarkerOptions().position(latLng).title("Your Location"));
@@ -84,6 +76,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 }
             });
         }
+        //Checking if GPS Provider is on or not
         else if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)){
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 5, new android.location.LocationListener() {
                 @Override
@@ -92,8 +85,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     latitude = location.getLatitude();
                     //Get Longitutde
                     longitude = location.getLongitude();
-                    Log.d("Latitude GPS","Latitude Maps"+latitude);
-                    Log.d("Longitude GPS","Longitude Maps"+longitude);
+
                     // Add a marker in current location and move the camera
                     LatLng latLng = new LatLng(latitude,longitude);
                     mMap.addMarker(new MarkerOptions().position(latLng).title("Your Location"));
