@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">MyLocationWeather</string>
+    <string name="date">Date</string>
+    <string name="city">City</string>
+    <string name="c">C</string>
+    <string name="sunny">Sunny</string>
+    <string name="temperature">Temperature</string>
+    <string name="description">Description</string>
+    <string name="google_maps">Google Maps</string>
+    <string name="weather_location">Weather Location</string>
+    <string name="weather">Weather</string>
+    <string name="location">Location</string>
+    <string name="latitude">Latitude</string>
+    <string name="longitude">Longitude</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_maps2">Map</string>
+</resources>
